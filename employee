@@ -1,0 +1,93 @@
+package week2;
+
+public class employee
+
+{
+
+String empname;
+
+int empno;
+
+byte expyrs;
+
+String gender;
+
+double basicsalary;
+
+double bonus;
+
+double netsalary;
+
+void setemployee(String name,int no,String sex,byte ex,double basicsalary)
+
+{
+
+empname=name;
+
+empno=no;
+
+gender=sex;
+
+expyrs=ex;
+
+basicsalary=basicsalary;
+
+}
+
+void getemployee()
+
+{
+
+if("female"==gender)
+
+{
+
+bonus=(basicsalary*10)/100;
+
+netsalary=basicsalary+bonus;
+
+}
+
+else
+
+netsalary=basicsalary;
+
+System.out.println(empname +"\t"+ empno +"\t"+ gender +"\t"+ expyrs +"\t"+ basicsalary +"\t"+ bonus +"\t"+ netsalary+"\n");
+
+}
+
+}
+
+class employeedetails
+
+{
+
+public static void main(String args[])
+
+{
+
+employee rahul= new employee();
+
+rahul.setemployee("rashmi", 128966, "female", (byte)20, 10000.0d);
+
+System.out.println("empname\tempno\tgender\texpyrs\tbasicsalary\tbonus\tnetsalary \n");
+
+rahul.getemployee();
+
+employee atlas= new employee();
+
+atlas.setemployee("atlas", 128969, "male", (byte)10, 150000.0d);
+
+atlas.getemployee();
+
+employee lily= new employee();
+
+lily.setemployee("lily", 128678, "female", (byte)25, 90000.0d);
+
+lily.getemployee();
+
+}
+
+}
+
+
