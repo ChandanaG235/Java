@@ -60,7 +60,7 @@ public class Issuebook
 
 
 	
-	public void issuebook(requestBook rb)  
+	public issuebook(requestBook rb)  
 	   {this.rb = rb;}
 
 	   public void IssueBook()
