@@ -1,0 +1,134 @@
+package week6a;
+import student.Student;
+import requestbook.*;
+import issuebook.Issuebook;
+
+public class Srp
+{
+	public static void main(String args[])
+	{
+		Student sony=new Student();
+		sony.setname("Sony Mathew");
+		sony.setregisterNO("119CS201");
+		requestBook rb=new requestBook();
+		rb.setbookName("Java programming");
+		rb.setduration(2);
+		rb.setStudent(sony);
+		rb.searchBook();
+		Issuebook iborder = new IssueBook(rb);
+		iborder.issuebook(rb);
+	}
+
+}
+package student;
+
+public class Student 
+{
+	private String name;
+	   private String registerNO;
+
+	   public String getname() 
+	   {
+	   return name;
+	   }
+
+	   public void setname(String name)
+	   {
+	   this.name = name;
+	   }
+
+	   public String getregisterNo()
+	   {
+	   return registerNO;
+	   }
+	    
+	   public void setregisterNO(String rno)
+	   {
+	   this.registerNO = rno;
+	   }
+}
+
+
+package issuebook;
+import student.Student;
+import requestbook.requestBook;
+
+public class Issuebook 
+{
+	private requestBook rb;
+
+
+
+	
+	public void issuebook(requestBook rb)  
+	   {this.rb = rb;}
+
+	   public void IssueBook()
+	   {
+	      System.out.println("Issuing the book");
+	      System.out.println("with request id as " + this.rb.getrequestID() + " being issued to " +this.rb.getStudent().getname());
+	      System.out.println("book is to be delivered to: " + this.rb.getStudent().getregisterNo());
+	   }
+	   
+}
+
+package requestbook;
+import student.Student;
+
+import java.util.Random;
+
+public class requestBook 
+{
+	private Student student;
+	   private String requestID;
+	   private String bookName;
+	   private int duration;
+
+	   public Student getStudent() 
+	   {
+	   return student;
+	   }
+
+	   public void setStudent(Student student) 
+	   {
+	   this.student = student;
+	   }
+
+	   public String getrequestID() 
+	   {
+	   return requestID;
+	   }
+
+	   public void setrequestId(String bookName) 
+	   {     
+	   Random random = new Random();
+	   this.requestID = (bookName + "_" + random.nextInt(500));
+	   }
+
+	   public String getbookName() 
+	   {
+	   return bookName;
+	   }
+
+	   public void setbookName(String bookName) 
+	   {
+	   this.bookName = bookName;
+	   setrequestId(bookName);
+	   }
+
+	   public int getduration() 
+	   {
+	   return duration;
+	   }
+
+	   public void setduration(int duration)
+	   {
+	   this.duration = duration;
+	   }
+	   public void searchBook()
+	   {
+		   System.out.println("searching book for student  - " + this.getStudent().getname()+ " who has requested "+ this.getbookName());
+	   }
+
+
+}
